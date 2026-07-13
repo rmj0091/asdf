@@ -202,6 +202,8 @@ def main() -> int:
     max_batch_size = int(os.environ.get("LOGGUARD_MAX_BATCH_SIZE", "90"))
     flush_interval = int(os.environ.get("LOGGUARD_FLUSH_INTERVAL", "5"))
 
+    sys.stderr.write(f"[logguard] 에이전트 구동 시작. [{access_log}] 로그 수집을 대기 중입니다...\n")
+
     # Each buffer item: {"data": <event dict>, "offset": <file offset right after this line>}
     buffer: List[dict] = []
     last_flush = time.monotonic()
